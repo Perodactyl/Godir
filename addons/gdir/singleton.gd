@@ -3,10 +3,13 @@ extends Node
 
 var encrypt_pass = ""
 var dir = Directory.new()
+enum {
+	READ=0
+	WRITE=1
+	READWRITE=2
+}
 
 func init_file(path:String, flags:int, encode:bool=false):
-	if encrypt_pass:
-		encode = true
 	var openCode = File.READ if flags == 0 else File.WRITE if flags == 1 else File.READ_WRITE
 	var file = File.new()
 	if !encode:
